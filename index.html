@@ -74,13 +74,11 @@
             transform: translateY(0);
         }
         /* लोगो के लिए कस्टम स्टाइल */
-        .tech-logo {
-            width: 32px;
-            height: 32px;
+        .tech-logo, .client-logo {
             filter: grayscale(100%) opacity(70%);
             transition: all 0.3s ease;
         }
-        .tech-logo:hover {
+        .tech-logo:hover, .client-logo:hover {
             filter: grayscale(0%) opacity(100%);
             transform: scale(1.1);
         }
@@ -94,9 +92,21 @@
             <a href="#" class="text-xl md:text-2xl font-bold tracking-tight text-white">Amit Chaudhary</a>
             <ul class="flex space-x-6 md:space-x-8">
                 <li>
-                    <a href="#portfolio" class="flex items-center text-gray-300 hover:text-teal-400 transition-colors duration-300">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
-                        Portfolio
+                    <a href="#services" class="flex items-center text-gray-300 hover:text-teal-400 transition-colors duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+                        Services
+                    </a>
+                </li>
+                 <li>
+                    <a href="#process" class="flex items-center text-gray-300 hover:text-teal-400 transition-colors duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><path d="M5 3v16m0 0a2 2 0 1 0 0 4m0 -4a2 2 0 1 1 0 4m0-4h8m-8 0a2 2 0 1 0 0-4m0 4a2 2 0 1 1 0-4m8 0v8m-8-8a2 2 0 1 0 0-4m0 4a2 2 0 1 1 0-4m8 4h8a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2h-8"></path></svg>
+                        Process
+                    </a>
+                </li>
+                <li>
+                    <a href="#work" class="flex items-center text-gray-300 hover:text-teal-400 transition-colors duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><path d="M20 8.5V2h-5.5"></path><path d="M17.5 22h-12a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2z"></path></svg>
+                        Our Work
                     </a>
                 </li>
                 <li>
@@ -130,15 +140,140 @@
                 </p>
                 <!-- IT लोगो को यहाँ जोड़ा गया है -->
                 <div class="flex justify-center md:justify-start space-x-6 mb-8">
-                    <img src="https://cdn.freebiesupply.com/logos/large/2x/react-1-logo-png-transparent.png" alt="React Logo" class="tech-logo">
-                    <img src="https://www.citypng.com/public/uploads/preview/js-javascript-round-logo-icon-png-7017516947717339mnyf7eumy.png" alt="JavaScript Logo" class="tech-logo">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/d/d9/Node.js_logo.svg" alt="Node.js Logo" class="tech-logo">
-                    <img src="https://www.opc-router.com/wp-content/uploads/2021/03/mongodb_thumbnail-200x269.png" alt="MongoDB Logo" class="tech-logo">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg" alt="Python Logo" class="tech-logo">
+                    <img src="https://cdn.freebiesupply.com/logos/large/2x/react-1-logo-png-transparent.png" alt="React Logo" class="tech-logo w-10 h-10">
+                    <img src="https://www.citypng.com/public/uploads/preview/js-javascript-round-logo-icon-png-7017516947717339mnyf7eumy.png" alt="JavaScript Logo" class="tech-logo w-10 h-10">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/d/d9/Node.js_logo.svg" alt="Node.js Logo" class="tech-logo w-10 h-10">
+                    <img src="https://www.opc-router.com/wp-content/uploads/2021/03/mongodb_thumbnail-200x269.png" alt="MongoDB Logo" class="tech-logo w-10 h-10">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg" alt="Python Logo" class="tech-logo w-10 h-10">
                 </div>
-                <a href="#portfolio" class="inline-block bg-gradient-to-r from-teal-500 to-blue-500 hover:from-teal-600 hover:to-blue-600 text-white font-semibold py-3 px-8 rounded-full shadow-lg transition-all duration-300 transform hover:-translate-y-1">
-                    View My Work
+                <a href="#services" class="inline-block bg-gradient-to-r from-teal-500 to-blue-500 hover:from-teal-600 hover:to-blue-600 text-white font-semibold py-3 px-8 rounded-full shadow-lg transition-all duration-300 transform hover:-translate-y-1">
+                    Explore My Services
                 </a>
+            </div>
+        </section>
+
+        <!-- मेरी सेवाओं का सेक्शन -->
+        <section id="services" class="py-12 md:py-16">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-white mb-10 flex items-center justify-center fade-in-up">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-3 text-teal-400"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+                My Services
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <!-- सेवा 1: वेब डेवलपमेंट -->
+                <div class="bg-gray-800 p-8 rounded-lg shadow-xl fade-in-up">
+                    <div class="text-teal-400 mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 16 4-4-4-4"></path><path d="m6 8-4 4 4 4"></path><path d="m14.5 4-5 16"></path></svg>
+                    </div>
+                    <h3 class="font-bold text-xl text-white mb-2">Web Development</h3>
+                    <p class="text-gray-300">From concept to deployment, I build scalable and secure web applications using modern frameworks and robust backend systems.</p>
+                </div>
+                <!-- सेवा 2: UI/UX डिज़ाइन -->
+                <div class="bg-gray-800 p-8 rounded-lg shadow-xl fade-in-up">
+                    <div class="text-teal-400 mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+                    </div>
+                    <h3 class="font-bold text-xl text-white mb-2">UI/UX Design</h3>
+                    <p class="text-gray-300">I craft intuitive and engaging user interfaces that not only look great but also provide a seamless user experience across all devices.</p>
+                </div>
+                <!-- सेवा 3: डिजिटल मार्केटिंग -->
+                <div class="bg-gray-800 p-8 rounded-lg shadow-xl fade-in-up">
+                    <div class="text-teal-400 mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><path d="M20 8.5V2h-5.5"></path><path d="M17.5 22h-12a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2z"></path></svg>
+                    </div>
+                    <h3 class="font-bold text-xl text-white mb-2">Digital Marketing</h3>
+                    <p class="text-gray-300">I help businesses grow their online presence with data-driven strategies for search engine optimization, content creation, and social media campaigns.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- मेरी सफलता का सेक्शन -->
+        <section id="our-success" class="py-12 md:py-16 bg-gray-800 rounded-lg shadow-inner">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-white mb-10 flex items-center justify-center fade-in-up">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-3 text-teal-400"><path d="M22 12A10 10 0 0 1 12 2v10Z"></path><path d="M12 22A10 10 0 0 0 22 12v10Z"></path><path d="M12 12v10A10 10 0 0 0 2 12Z"></path></svg>
+                My Success in Numbers
+            </h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-6xl mx-auto text-center">
+                <!-- 5+ Years -->
+                <div class="fade-in-up flex flex-col items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-teal-400 mb-2"><path d="M2 12c.6-.5 1.2-1 2-1.5A10.15 10.15 0 0 1 14.5 4c3 0 5.5 1.5 7.5 3.5"></path><path d="M22 12c-.6.5-1.2 1-2 1.5a10.15 10.15 0 0 1-12.5 7.5c-3 0-5.5-1.5-7.5-3.5"></path></svg>
+                    <div class="text-4xl md:text-5xl font-bold text-white mb-1">5+</div>
+                    <p class="text-gray-300">Years Helping Businesses</p>
+                </div>
+                <!-- 50+ Working Employees -->
+                <div class="fade-in-up flex flex-col items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-teal-400 mb-2"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><path d="M20 8.5V2h-5.5"></path><path d="M17.5 22h-12a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2z"></path></svg>
+                    <div class="text-4xl md:text-5xl font-bold text-white mb-1">50+</div>
+                    <p class="text-gray-300">Working Employees</p>
+                </div>
+                <!-- 500+ Complete Projects -->
+                <div class="fade-in-up flex flex-col items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-teal-400 mb-2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" x2="8" y1="13" y2="13"></line><line x1="16" x2="8" y1="17" y2="17"></line><line x1="10" x2="8" y1="9" y2="9"></line></svg>
+                    <div class="text-4xl md:text-5xl font-bold text-white mb-1">500+</div>
+                    <p class="text-gray-300">Completed Projects</p>
+                </div>
+                <!-- 1000+ Happy Customers -->
+                <div class="fade-in-up flex flex-col items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-teal-400 mb-2"><path d="M22 11.08V12a10 10 0 1 1-5.93-8.8"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                    <div class="text-4xl md:text-5xl font-bold text-white mb-1">1000+</div>
+                    <p class="text-gray-300">Happy Customers</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- मेरी काम करने की प्रक्रिया का सेक्शन -->
+        <section id="process" class="py-12 md:py-16">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-white mb-10 flex items-center justify-center fade-in-up">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-3 text-teal-400"><path d="M5 3v16m0 0a2 2 0 1 0 0 4m0 -4a2 2 0 1 1 0 4m0-4h8m-8 0a2 2 0 1 0 0-4m0 4a2 2 0 1 1 0-4m8 0v8m-8-8a2 2 0 1 0 0-4m0 4a2 2 0 1 1 0-4m8 4h8a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2h-8"></path></svg>
+                My Working Process
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+                <!-- चरण 1: चर्चा -->
+                <div class="bg-gray-800 p-6 rounded-lg shadow-xl fade-in-up">
+                    <div class="flex items-center mb-4">
+                        <span class="text-3xl font-bold text-teal-400 mr-4">1.</span>
+                        <h3 class="font-bold text-xl text-white">Discussion</h3>
+                    </div>
+                    <p class="text-gray-300">I meet with customers to understand their needs and demands before proposing a customized plan.</p>
+                </div>
+                <!-- चरण 2: विश्लेषण और आवश्यकताएं -->
+                <div class="bg-gray-800 p-6 rounded-lg shadow-xl fade-in-up">
+                    <div class="flex items-center mb-4">
+                         <span class="text-3xl font-bold text-teal-400 mr-4">2.</span>
+                        <h3 class="font-bold text-xl text-white">Analysis & Requirements</h3>
+                    </div>
+                    <p class="text-gray-300">I analyze the requirements to deliver the best possible solutions for the chosen IT services.</p>
+                </div>
+                <!-- चरण 3: योजना और रणनीति -->
+                <div class="bg-gray-800 p-6 rounded-lg shadow-xl fade-in-up">
+                    <div class="flex items-center mb-4">
+                         <span class="text-3xl font-bold text-teal-400 mr-4">3.</span>
+                        <h3 class="font-bold text-xl text-white">Planning & Strategy</h3>
+                    </div>
+                    <p class="text-gray-300">After agreeing on the ideas and plans, I conduct the project as scheduled and provide regular progress updates.</p>
+                </div>
+                <!-- चरण 4: निष्पादन -->
+                <div class="bg-gray-800 p-6 rounded-lg shadow-xl fade-in-up">
+                    <div class="flex items-center mb-4">
+                         <span class="text-3xl font-bold text-teal-400 mr-4">4.</span>
+                        <h3 class="font-bold text-xl text-white">Execution</h3>
+                    </div>
+                    <p class="text-gray-300">Once the final plan is approved, everything is conducted according to the agreed-upon contract and timeline.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- क्लाइंट्स सेक्शन (अब "My Work" है) -->
+        <section id="work" class="py-12 md:py-16">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-white mb-10 flex items-center justify-center fade-in-up">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-3 text-teal-400"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><path d="M20 8.5V2h-5.5"></path><path d="M17.5 22h-12a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2z"></path></svg>
+                My Work
+            </h2>
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-8 items-center justify-center max-w-6xl mx-auto fade-in-up">
+                <img src="https://placehold.co/150x75/0d131f/ffffff?text=Client+A" alt="Client Logo A" class="client-logo w-full h-auto">
+                <img src="https://placehold.co/150x75/0d131f/ffffff?text=Client+B" alt="Client Logo B" class="client-logo w-full h-auto">
+                <img src="https://placehold.co/150x75/0d131f/ffffff?text=Client+C" alt="Client Logo C" class="client-logo w-full h-auto">
+                <img src="https://placehold.co/150x75/0d131f/ffffff?text=Client+D" alt="Client Logo D" class="client-logo w-full h-auto">
+                <img src="https://placehold.co/150x75/0d131f/ffffff?text=Client+E" alt="Client Logo E" class="client-logo w-full h-auto">
             </div>
         </section>
 
@@ -218,12 +353,47 @@
             </div>
         </section>
 
+        <!-- गैलरी सेक्शन -->
+        <section id="gallery" class="py-12 md:py-16">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-white mb-10 flex items-center justify-center fade-in-up">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-3 text-teal-400"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+                Project Gallery
+            </h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                <!-- गैलरी आइटम 1 -->
+                <div class="rounded-lg overflow-hidden shadow-xl fade-in-up hover:shadow-2xl transition-shadow duration-300">
+                    <img src="https://placehold.co/800x500/10b981/ffffff?text=Project+Mockup+1" alt="A screenshot of a project mockup" class="w-full h-auto object-cover">
+                    <div class="p-4 bg-gray-800">
+                        <h3 class="font-bold text-lg text-white mb-2">Portfolio Website</h3>
+                        <p class="text-sm text-gray-400">A clean and modern portfolio showcasing various IT projects.</p>
+                    </div>
+                </div>
+                <!-- गैलरी आइटम 2 -->
+                <div class="rounded-lg overflow-hidden shadow-xl fade-in-up hover:shadow-2xl transition-shadow duration-300">
+                    <img src="https://placehold.co/800x500/f59e0b/ffffff?text=Data+Dashboard+UI" alt="A screenshot of a data dashboard" class="w-full h-auto object-cover">
+                    <div class="p-4 bg-gray-800">
+                        <h3 class="font-bold text-lg text-white mb-2">Data Analytics Dashboard</h3>
+                        <p class="text-sm text-gray-400">An interactive dashboard to visualize complex datasets for business insights.</p>
+                    </div>
+                </div>
+                <!-- गैलरी आइटम 3 -->
+                <div class="rounded-lg overflow-hidden shadow-xl fade-in-up hover:shadow-2xl transition-shadow duration-300">
+                    <img src="https://placehold.co/800x500/3b82f6/ffffff?text=Mobile+Game+Concept" alt="A screenshot of a mobile game concept" class="w-full h-auto object-cover">
+                    <div class="p-4 bg-gray-800">
+                        <h3 class="font-bold text-lg text-white mb-2">Mobile Game Concept</h3>
+                        <p class="text-sm text-gray-400">A mobile game prototype with intuitive controls and engaging visuals.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- मेरे बारे में सेक्शन -->
         <section id="about" class="py-12 md:py-16">
-            <h2 class="text-3xl md:text-4xl font-bold text-center text-white mb-10 flex items-center justify-center fade-in-up">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-white mb-2 flex items-center justify-center fade-in-up">
                 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-3 text-teal-400"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-                About Me
+                About Amit Chaudhary
             </h2>
+            <p class="text-xl text-center text-gray-400 mb-8 fade-in-up">A Complete IT Solutions</p>
             <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-8 bg-gray-800 p-8 rounded-lg shadow-xl fade-in-up">
                 <div class="relative w-48 h-48 rounded-full overflow-hidden shadow-lg flex-shrink-0">
                     <!-- आपकी प्रोफ़ाइल तस्वीर -->
@@ -231,14 +401,39 @@
                 </div>
                 <div class="md:text-left text-center">
                     <p class="text-gray-300 mb-4">
-                        Hello! My name is Amit Chaudhary, and I am a passionate **IT professional**. My primary interest lies in building robust software and solving complex technical challenges. As a dedicated full-stack developer, I take great pride in writing clean, efficient, and maintainable code.
+                        I am a passionate IT professional dedicated to building robust software and solving complex technical challenges. My primary interest lies in providing complete IT solutions that are both scalable and secure.
                     </p>
                     <p class="text-gray-300 mb-4">
                         I believe that a great project not only solves a problem but also provides an exceptional user experience. My goal is to create solutions that are both impactful and user-friendly. I am confident in my abilities and am always eager to learn and implement new technologies to stay at the forefront of the industry.
                     </p>
                     <p class="text-gray-300">
-                        When I'm not coding, you can find me staying updated with the latest technological trends or enjoying outdoor games. I firmly believe that continuous learning and skill enhancement are crucial for a developer's success.
+                        When I'm not coding, I'm busy staying updated with the latest technological trends and refining my skills. I firmly believe that continuous learning and skill enhancement are crucial for my success and for providing the best service to my clients.
                     </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- छोटा FAQ सेक्शन -->
+        <section id="faq" class="py-12 md:py-16">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-white mb-10 flex items-center justify-center fade-in-up">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-3 text-teal-400"><path d="M9.09 3c-1.2 0-2.43.35-3.5.79-.76.31-1.46.8-2 1.41a6.38 6.38 0 0 0-1.4 2A10.15 10.15 0 0 0 2 12c.6 3.4 2.8 5.7 5.5 6.7.75.3 1.5.58 2.3.82l.4.1h2.2c1.7 0 3.2-.5 4.5-1.5a5.58 5.58 0 0 0 2.2-2.8l.5-1.2c.5-1.1.7-2.3.7-3.5a10.15 10.15 0 0 0-1.4-2c-.54-.6-1.24-1.1-2-1.41C15.47 3.35 14.2 3 13 3h-3.9z"></path></svg>
+                Frequently Asked Questions
+            </h2>
+            <div class="max-w-3xl mx-auto">
+                <!-- FAQ Item 1 -->
+                <div class="bg-gray-800 p-6 rounded-lg shadow-xl mb-4 fade-in-up">
+                    <h3 class="font-bold text-lg text-white mb-2">What services do you offer?</h3>
+                    <p class="text-gray-300">I offer a wide range of services including web development, UI/UX design, digital marketing, and cloud solutions.</p>
+                </div>
+                <!-- FAQ Item 2 -->
+                <div class="bg-gray-800 p-6 rounded-lg shadow-xl mb-4 fade-in-up">
+                    <h3 class="font-bold text-lg text-white mb-2">How do you start a project?</h3>
+                    <p class="text-gray-300">I begin with a detailed discussion to understand your needs, followed by a thorough analysis and planning phase.</p>
+                </div>
+                <!-- FAQ Item 3 -->
+                <div class="bg-gray-800 p-6 rounded-lg shadow-xl mb-4 fade-in-up">
+                    <h3 class="font-bold text-lg text-white mb-2">What are your working hours?</h3>
+                    <p class="text-gray-300">I am available for discussions from Monday to Friday, 9 AM to 6 PM IST. I am also flexible for urgent requests.</p>
                 </div>
             </div>
         </section>
@@ -294,7 +489,7 @@
     </div>
 
     <script>
-        const API_KEY = ""; // API key स्वचालित रूप से प्रदान की गई है।
+        const API_KEY = "YOUR_API_KEY_HERE"; // <-- यहाँ अपना Gemini API Key पेस्ट करें
 
         // प्रोजेक्ट का सारांश पाने के लिए Gemini API को कॉल करने का फ़ंक्शन।
         async function getSummaryFromGemini(projectTitle) {
