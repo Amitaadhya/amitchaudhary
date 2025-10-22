@@ -3,67 +3,102 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Amit IT Portfolio</title>
-    <!-- Tailwind CSS का उपयोग करें ताकि वेबसाइट सुंदर और रिस्पॉन्सिव दिखे -->
+    <title>Amit Chaudhary | IT Solutions Architect</title>
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts से इंटर फ़ॉन्ट का उपयोग करें -->
+    <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
-    <!-- सोशल मीडिया आइकॉन्स के लिए Font Awesome का उपयोग करें -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Social Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
     <style>
+        /* Base styles */
         body {
             font-family: 'Inter', sans-serif;
-            background: #111827; /* गहरा बैकग्राउंड */
+            background-color: #020617; /* Dark Slate Blue */
+            color: #e2e8f0; /* Light Slate Gray */
+            overflow-x: hidden; /* Prevent horizontal scroll from background elements */
         }
-        /* वेबसाइट को और आकर्षक बनाने के लिए कस्टम स्क्रॉलबार */
-        ::-webkit-scrollbar {
-            width: 8px;
+
+        /* Animated Aurora Background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: 
+                radial-gradient(at 20% 20%, hsla(212, 90%, 50%, 0.15) 0px, transparent 50%),
+                radial-gradient(at 80% 20%, hsla(280, 80%, 55%, 0.15) 0px, transparent 50%),
+                radial-gradient(at 20% 80%, hsla(180, 90%, 50%, 0.15) 0px, transparent 50%),
+                radial-gradient(at 80% 80%, hsla(340, 80%, 60%, 0.15) 0px, transparent 50%);
+            z-index: -1;
+            animation: moveGradient 20s ease-in-out infinite alternate;
         }
-        ::-webkit-scrollbar-track {
-            background: #2d3748;
+
+        @keyframes moveGradient {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(20px, 30px) scale(1.1); }
         }
-        ::-webkit-scrollbar-thumb {
-            background-color: #4a5568;
-            border-radius: 4px;
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0f172a; }
+        ::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #475569; }
+
+        /* Glassmorphism Card */
+        .glass-card {
+            background: rgba(15, 23, 42, 0.6); /* Semi-transparent slate */
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(51, 65, 85, 0.5);
+            transition: all 0.3s ease-in-out;
+            position: relative;
+            overflow: hidden;
         }
-        /* प्रोजेक्ट सारांश दिखाने के लिए पॉप-अप विंडो (Modal) */
+
+        .glass-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* Modal styling */
         .modal {
-            display: none; /* डिफ़ॉल्ट रूप से छुपा हुआ */
+            display: none;
             position: fixed;
             z-index: 100;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
+            left: 0; top: 0;
+            width: 100%; height: 100%;
             background-color: rgba(0,0,0,0.8);
             justify-content: center;
             align-items: center;
         }
         .modal-content {
-            background-color: #1a202c;
+            background-color: #0f172a; /* Darker Slate */
             padding: 24px;
             border-radius: 12px;
             max-width: 90%;
             width: 500px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.5);
             position: relative;
+            border: 1px solid #334155;
         }
         .close-button {
             position: absolute;
-            top: 10px;
-            right: 15px;
+            top: 10px; right: 15px;
             font-size: 24px;
             font-weight: bold;
-            color: #d1d5db;
+            color: #94a3b8;
             cursor: pointer;
+            transition: color 0.2s ease;
         }
-        .close-button:hover {
-            color: #fff;
-        }
-        /* एनिमेशन के लिए CSS */
+        .close-button:hover { color: #fff; }
+
+        /* Animation class */
         .fade-in-up {
             opacity: 0;
             transform: translateY(20px);
@@ -73,474 +108,284 @@
             opacity: 1;
             transform: translateY(0);
         }
-        /* लोगो के लिए कस्टम स्टाइल */
-        .tech-logo, .client-logo {
-            filter: grayscale(100%) opacity(70%);
+
+        /* Gradient Text */
+        .gradient-text {
+            background: linear-gradient(90deg, #22d3ee, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+        }
+        
+        .tech-logo {
+            filter: grayscale(100%) opacity(60%);
             transition: all 0.3s ease;
         }
-        .tech-logo:hover, .client-logo:hover {
+        .tech-logo:hover {
             filter: grayscale(0%) opacity(100%);
-            transform: scale(1.1);
+            transform: scale(1.15);
         }
     </style>
 </head>
-<body class="bg-gray-900 text-gray-100 antialiased">
+<body class="antialiased">
 
-    <!-- हेडर और नेविगेशन बार -->
-    <header class="sticky top-0 z-50 bg-gray-900/80 backdrop-blur-sm p-4 md:px-8 border-b border-gray-700">
-        <nav class="container mx-auto flex justify-between items-center">
-            <a href="#" class="text-xl md:text-2xl font-bold tracking-tight text-white">Amit Chaudhary</a>
-            <ul class="flex space-x-6 md:space-x-8">
-                <li>
-                    <a href="#services" class="flex items-center text-gray-300 hover:text-teal-400 transition-colors duration-300">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
-                        Services
-                    </a>
-                </li>
-                 <li>
-                    <a href="#process" class="flex items-center text-gray-300 hover:text-teal-400 transition-colors duration-300">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><path d="M5 3v16m0 0a2 2 0 1 0 0 4m0 -4a2 2 0 1 1 0 4m0-4h8m-8 0a2 2 0 1 0 0-4m0 4a2 2 0 1 1 0-4m8 0v8m-8-8a2 2 0 1 0 0-4m0 4a2 2 0 1 1 0-4m8 4h8a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2h-8"></path></svg>
-                        Process
-                    </a>
-                </li>
-                <li>
-                    <a href="#work" class="flex items-center text-gray-300 hover:text-teal-400 transition-colors duration-300">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><path d="M20 8.5V2h-5.5"></path><path d="M17.5 22h-12a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2z"></path></svg>
-                        Our Work
-                    </a>
-                </li>
-                <li>
-                    <a href="#about" class="flex items-center text-gray-300 hover:text-teal-400 transition-colors duration-300">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-                        About
-                    </a>
-                </li>
-                <li>
-                    <a href="#contact" class="flex items-center text-gray-300 hover:text-teal-400 transition-colors duration-300">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-                        Contact
-                    </a>
-                </li>
+    <!-- Header -->
+    <header class="sticky top-0 z-50 bg-slate-900/70 backdrop-blur-lg border-b border-slate-700/50">
+        <nav class="container mx-auto flex justify-between items-center p-4 px-6 md:px-8">
+            <!-- LOGO AND NAME -->
+            <a href="#" class="flex items-center gap-x-3 group">
+                <!-- Custom AC Logo SVG -->
+                <svg class="h-8 w-8 transition-transform duration-300 group-hover:scale-110" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="logo-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#22d3ee; stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#3b82f6; stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <path d="M12.75 3L3 21H6.25L8.375 16H15.625L17.75 21H21L12.75 3ZM9.125 14L12 7.5L14.875 14H9.125Z" fill="url(#logo-gradient)"/>
+                </svg>
+                <span class="text-2xl font-bold tracking-tight text-white group-hover:text-cyan-400 transition-colors">Amit Chaudhary</span>
+            </a>
+
+            <!-- Navigation Links -->
+            <ul class="hidden md:flex items-center space-x-8 text-sm font-medium text-slate-300">
+                <li><a href="#services" class="hover:text-cyan-400 transition-colors">Services</a></li>
+                <li><a href="#process" class="hover:text-cyan-400 transition-colors">Process</a></li>
+                <li><a href="#work" class="hover:text-cyan-400 transition-colors">Work</a></li>
+                <li><a href="#about" class="hover:text-cyan-400 transition-colors">About</a></li>
+                <li><a href="#contact" class="bg-slate-700 hover:bg-slate-600 text-white font-semibold py-2 px-5 rounded-full transition-all duration-300">Contact Me</a></li>
             </ul>
         </nav>
     </header>
 
-    <main class="container mx-auto p-4 md:p-8">
+    <main class="container mx-auto p-6 md:p-8">
         
-        <!-- हीरो सेक्शन (सबसे ऊपर वाला हिस्सा) -->
-        <section id="hero" class="py-16 md:py-28 flex flex-col md:flex-row items-center justify-center text-center md:text-left gap-8 md:gap-16">
-            <div class="relative w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden shadow-2xl fade-in-up">
-                <!-- आपकी प्रोफ़ाइल तस्वीर -->
-                <img src="https://i.postimg.cc/sXPJH9xd/Screenshot-2025-06-19-143219.png" alt="Amit Chaudhary" class="absolute inset-0 w-full h-full object-cover">
+        <!-- Hero Section -->
+        <section id="hero" class="min-h-[80vh] flex flex-col items-center justify-center text-center py-20">
+            <div class="relative w-40 h-40 md:w-48 md:h-48 mb-6 fade-in-up">
+                <img src="https://i.postimg.cc/sXPJH9xd/Screenshot-2025-06-19-143219.png" alt="Amit Chaudhary" class="rounded-full w-full h-full object-cover shadow-2xl">
+                <div class="absolute inset-0 rounded-full border-2 border-cyan-400/50 animate-pulse"></div>
             </div>
-            <div class="fade-in-up">
-                <h1 class="text-4xl md:text-6xl font-extrabold leading-tight text-white mb-4">Hello, I'm <span class="text-teal-400">Amit Chaudhary</span>.</h1>
-                <p class="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto md:mx-0 mb-6">
-                    A dedicated IT professional with expertise in web development, software engineering, and problem-solving.
-                </p>
-                <!-- IT लोगो को यहाँ जोड़ा गया है -->
-                <div class="flex justify-center md:justify-start space-x-6 mb-8">
-                    <img src="https://cdn.freebiesupply.com/logos/large/2x/react-1-logo-png-transparent.png" alt="React Logo" class="tech-logo w-10 h-10">
-                    <img src="https://www.citypng.com/public/uploads/preview/js-javascript-round-logo-icon-png-7017516947717339mnyf7eumy.png" alt="JavaScript Logo" class="tech-logo w-10 h-10">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/d/d9/Node.js_logo.svg" alt="Node.js Logo" class="tech-logo w-10 h-10">
-                    <img src="https://www.opc-router.com/wp-content/uploads/2021/03/mongodb_thumbnail-200x269.png" alt="MongoDB Logo" class="tech-logo w-10 h-10">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg" alt="Python Logo" class="tech-logo w-10 h-10">
-                </div>
-                <a href="#services" class="inline-block bg-gradient-to-r from-teal-500 to-blue-500 hover:from-teal-600 hover:to-blue-600 text-white font-semibold py-3 px-8 rounded-full shadow-lg transition-all duration-300 transform hover:-translate-y-1">
-                    Explore My Services
+            <h1 class="text-4xl md:text-6xl font-black text-white leading-tight mb-4 fade-in-up" style="animation-delay: 0.2s;">
+                Hi, I'm <span class="gradient-text">Amit Chaudhary</span>
+            </h1>
+            <p class="text-lg md:text-xl text-slate-300 max-w-3xl mx-auto mb-8 fade-in-up" style="animation-delay: 0.4s;">
+                An IT Solutions Architect, crafting robust and scalable digital experiences that drive growth and innovation.
+            </p>
+            <div class="fade-in-up" style="animation-delay: 0.6s;">
+                <a href="#work" class="inline-block bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-white font-bold py-3 px-8 rounded-full shadow-lg shadow-cyan-500/20 transition-all duration-300 transform hover:scale-105">
+                    View My Work
                 </a>
             </div>
+            <div class="mt-12 fade-in-up" style="animation-delay: 0.8s;">
+                 <p class="text-sm text-slate-400 mb-4">My Tech Stack:</p>
+                 <div class="flex justify-center items-center space-x-6">
+                    <img src="https://cdn.worldvectorlogo.com/logos/react-2.svg" alt="React" class="tech-logo w-10 h-10" title="React">
+                    <img src="https://cdn.worldvectorlogo.com/logos/nodejs-icon.svg" alt="Node.js" class="tech-logo w-10 h-10" title="Node.js">
+                    <img src="https://cdn.worldvectorlogo.com/logos/mongodb-icon-1.svg" alt="MongoDB" class="tech-logo w-10 h-10" title="MongoDB">
+                    <img src="https://cdn.worldvectorlogo.com/logos/python-5.svg" alt="Python" class="tech-logo w-10 h-10" title="Python">
+                    <img src="https://cdn.worldvectorlogo.com/logos/tailwindcss.svg" alt="Tailwind CSS" class="tech-logo w-10 h-10" title="Tailwind CSS">
+                 </div>
+            </div>
         </section>
 
-        <!-- मेरी सेवाओं का सेक्शन -->
-        <section id="services" class="py-12 md:py-16">
-            <h2 class="text-3xl md:text-4xl font-bold text-center text-white mb-10 flex items-center justify-center fade-in-up">
-                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-3 text-teal-400"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
-                My Services
-            </h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-                <!-- सेवा 1: वेब डेवलपमेंट -->
-                <div class="bg-gray-800 p-8 rounded-lg shadow-xl fade-in-up">
-                    <div class="text-teal-400 mb-4">
-                        <svg xmlns="https://i.postimg.cc/3rpjpnxp/download.png" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 16 4-4-4-4"></path><path d="m6 8-4 4 4 4"></path><path d="m14.5 4-5 16"></path></svg>
-                    </div>
-                    <h3 class="font-bold text-xl text-white mb-2">Web Development</h3>
-                    <p class="text-gray-300">From concept to deployment, I build scalable and secure web applications using modern frameworks and robust backend systems.</p>
+        <!-- Services Section -->
+        <section id="services" class="py-16 md:py-24">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-white mb-12 fade-in-up">What I Offer</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <!-- Service 1: Web Development -->
+                <div class="glass-card p-8 rounded-xl fade-in-up">
+                    <div class="mb-4 text-cyan-400"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg></div>
+                    <h3 class="font-bold text-xl text-white mb-3">Full-Stack Development</h3>
+                    <p class="text-slate-300">Building dynamic, responsive, and high-performance web applications from front-end to back-end.</p>
                 </div>
-                <!-- सेवा 2: UI/UX डिज़ाइन -->
-                <div class="bg-gray-800 p-8 rounded-lg shadow-xl fade-in-up">
-                    <div class="text-teal-400 mb-4">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
-                    </div>
-                    <h3 class="font-bold text-xl text-white mb-2">UI/UX Design</h3>
-                    <p class="text-gray-300">I craft intuitive and engaging user interfaces that not only look great but also provide a seamless user experience across all devices.</p>
+                <!-- Service 2: UI/UX Design -->
+                <div class="glass-card p-8 rounded-xl fade-in-up" style="animation-delay: 0.2s;">
+                    <div class="mb-4 text-cyan-400"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.5L15.232 5.232z"/></svg></div>
+                    <h3 class="font-bold text-xl text-white mb-3">UI/UX & Prototyping</h3>
+                    <p class="text-slate-300">Designing intuitive, beautiful interfaces that provide an exceptional user experience and solve real problems.</p>
                 </div>
-                <!-- सेवा 3: डिजिटल मार्केटिंग -->
-                <div class="bg-gray-800 p-8 rounded-lg shadow-xl fade-in-up">
-                    <div class="text-teal-400 mb-4">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><path d="M20 8.5V2h-5.5"></path><path d="M17.5 22h-12a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2z"></path></svg>
-                    </div>
-                    <h3 class="font-bold text-xl text-white mb-2">Digital Marketing</h3>
-                    <p class="text-gray-300">I help businesses grow their online presence with data-driven strategies for search engine optimization, content creation, and social media campaigns.</p>
+                <!-- Service 3: Cloud & DevOps -->
+                <div class="glass-card p-8 rounded-xl fade-in-up" style="animation-delay: 0.4s;">
+                    <div class="mb-4 text-cyan-400"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9V3m0 18a9 9 0 009-9m-9 9a9 9 0 00-9-9"/></svg></div>
+                    <h3 class="font-bold text-xl text-white mb-3">Cloud Solutions</h3>
+                    <p class="text-slate-300">Implementing scalable cloud infrastructure and CI/CD pipelines for seamless deployment and operations.</p>
                 </div>
             </div>
         </section>
 
-        <!-- मेरी सफलता का सेक्शन -->
-        <section id="our-success" class="py-12 md:py-16 bg-gray-800 rounded-lg shadow-inner">
-            <h2 class="text-3xl md:text-4xl font-bold text-center text-white mb-10 flex items-center justify-center fade-in-up">
-                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-3 text-teal-400"><path d="M22 12A10 10 0 0 1 12 2v10Z"></path><path d="M12 22A10 10 0 0 0 22 12v10Z"></path><path d="M12 12v10A10 10 0 0 0 2 12Z"></path></svg>
-                My Success in Numbers
-            </h2>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-6xl mx-auto text-center">
-                <!-- 5+ Years -->
-                <div class="fade-in-up flex flex-col items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-teal-400 mb-2"><path d="M2 12c.6-.5 1.2-1 2-1.5A10.15 10.15 0 0 1 14.5 4c3 0 5.5 1.5 7.5 3.5"></path><path d="M22 12c-.6.5-1.2 1-2 1.5a10.15 10.15 0 0 1-12.5 7.5c-3 0-5.5-1.5-7.5-3.5"></path></svg>
-                    <div class="text-4xl md:text-5xl font-bold text-white mb-1">5+</div>
-                    <p class="text-gray-300">Years Helping Businesses</p>
-                </div>
-                <!-- 50+ Working Employees -->
-                <div class="fade-in-up flex flex-col items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-teal-400 mb-2"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><path d="M20 8.5V2h-5.5"></path><path d="M17.5 22h-12a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2z"></path></svg>
-                    <div class="text-4xl md:text-5xl font-bold text-white mb-1">50+</div>
-                    <p class="text-gray-300">Working Employees</p>
-                </div>
-                <!-- 500+ Complete Projects -->
-                <div class="fade-in-up flex flex-col items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-teal-400 mb-2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" x2="8" y1="13" y2="13"></line><line x1="16" x2="8" y1="17" y2="17"></line><line x1="10" x2="8" y1="9" y2="9"></line></svg>
-                    <div class="text-4xl md:text-5xl font-bold text-white mb-1">500+</div>
-                    <p class="text-gray-300">Completed Projects</p>
-                </div>
-                <!-- 1000+ Happy Customers -->
-                <div class="fade-in-up flex flex-col items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-teal-400 mb-2"><path d="M22 11.08V12a10 10 0 1 1-5.93-8.8"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
-                    <div class="text-4xl md:text-5xl font-bold text-white mb-1">1000+</div>
-                    <p class="text-gray-300">Happy Customers</p>
+        <!-- Working Process Section -->
+        <section id="process" class="py-16 md:py-24">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-white mb-12 fade-in-up">My 4-Step Process</h2>
+            <div class="relative max-w-6xl mx-auto">
+                 <!-- Connecting Line -->
+                <div class="hidden md:block absolute top-1/2 left-0 w-full h-0.5 bg-slate-700 -translate-y-1/2"></div>
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                    <!-- Step 1 -->
+                    <div class="text-center fade-in-up">
+                        <div class="relative z-10 w-16 h-16 mx-auto mb-4 flex items-center justify-center text-2xl font-bold text-slate-900 bg-cyan-400 rounded-full border-4 border-slate-900">01</div>
+                        <h3 class="font-semibold text-white mb-2">Discover & Plan</h3>
+                        <p class="text-slate-400 text-sm">We start by understanding your vision, goals, and requirements to create a solid project roadmap.</p>
+                    </div>
+                     <!-- Step 2 -->
+                    <div class="text-center fade-in-up" style="animation-delay: 0.2s;">
+                        <div class="relative z-10 w-16 h-16 mx-auto mb-4 flex items-center justify-center text-2xl font-bold text-slate-900 bg-cyan-400 rounded-full border-4 border-slate-900">02</div>
+                        <h3 class="font-semibold text-white mb-2">Design & Prototype</h3>
+                        <p class="text-slate-400 text-sm">I create wireframes and high-fidelity mockups, focusing on a user-centric and intuitive design.</p>
+                    </div>
+                     <!-- Step 3 -->
+                    <div class="text-center fade-in-up" style="animation-delay: 0.4s;">
+                        <div class="relative z-10 w-16 h-16 mx-auto mb-4 flex items-center justify-center text-2xl font-bold text-slate-900 bg-cyan-400 rounded-full border-4 border-slate-900">03</div>
+                        <h3 class="font-semibold text-white mb-2">Develop & Test</h3>
+                        <p class="text-slate-400 text-sm">The approved design is brought to life with clean, efficient code and rigorously tested for quality.</p>
+                    </div>
+                     <!-- Step 4 -->
+                    <div class="text-center fade-in-up" style="animation-delay: 0.6s;">
+                        <div class="relative z-10 w-16 h-16 mx-auto mb-4 flex items-center justify-center text-2xl font-bold text-slate-900 bg-cyan-400 rounded-full border-4 border-slate-900">04</div>
+                        <h3 class="font-semibold text-white mb-2">Deploy & Iterate</h3>
+                        <p class="text-slate-400 text-sm">I deploy the project and provide ongoing support, gathering feedback for future improvements.</p>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- मेरी काम करने की प्रक्रिया का सेक्शन -->
-        <section id="process" class="py-12 md:py-16">
-            <h2 class="text-3xl md:text-4xl font-bold text-center text-white mb-10 flex items-center justify-center fade-in-up">
-                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-3 text-teal-400"><path d="M5 3v16m0 0a2 2 0 1 0 0 4m0 -4a2 2 0 1 1 0 4m0-4h8m-8 0a2 2 0 1 0 0-4m0 4a2 2 0 1 1 0-4m8 0v8m-8-8a2 2 0 1 0 0-4m0 4a2 2 0 1 1 0-4m8 4h8a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2h-8"></path></svg>
-                My Working Process
-            </h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
-                <!-- चरण 1: चर्चा -->
-                <div class="bg-gray-800 p-6 rounded-lg shadow-xl fade-in-up">
-                    <div class="flex items-center mb-4">
-                        <span class="text-3xl font-bold text-teal-400 mr-4">1.</span>
-                        <h3 class="font-bold text-xl text-white">Discussion</h3>
-                    </div>
-                    <p class="text-gray-300">I meet with customers to understand their needs and demands before proposing a customized plan.</p>
-                </div>
-                <!-- चरण 2: विश्लेषण और आवश्यकताएं -->
-                <div class="bg-gray-800 p-6 rounded-lg shadow-xl fade-in-up">
-                    <div class="flex items-center mb-4">
-                         <span class="text-3xl font-bold text-teal-400 mr-4">2.</span>
-                        <h3 class="font-bold text-xl text-white">Analysis & Requirements</h3>
-                    </div>
-                    <p class="text-gray-300">I analyze the requirements to deliver the best possible solutions for the chosen IT services.</p>
-                </div>
-                <!-- चरण 3: योजना और रणनीति -->
-                <div class="bg-gray-800 p-6 rounded-lg shadow-xl fade-in-up">
-                    <div class="flex items-center mb-4">
-                         <span class="text-3xl font-bold text-teal-400 mr-4">3.</span>
-                        <h3 class="font-bold text-xl text-white">Planning & Strategy</h3>
-                    </div>
-                    <p class="text-gray-300">After agreeing on the ideas and plans, I conduct the project as scheduled and provide regular progress updates.</p>
-                </div>
-                <!-- चरण 4: निष्पादन -->
-                <div class="bg-gray-800 p-6 rounded-lg shadow-xl fade-in-up">
-                    <div class="flex items-center mb-4">
-                         <span class="text-3xl font-bold text-teal-400 mr-4">4.</span>
-                        <h3 class="font-bold text-xl text-white">Execution</h3>
-                    </div>
-                    <p class="text-gray-300">Once the final plan is approved, everything is conducted according to the agreed-upon contract and timeline.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- क्लाइंट्स सेक्शन (अब "My Work" है) -->
-        <section id="work" class="py-12 md:py-16">
-            <h2 class="text-3xl md:text-4xl font-bold text-center text-white mb-10 flex items-center justify-center fade-in-up">
-                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-3 text-teal-400"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><path d="M20 8.5V2h-5.5"></path><path d="M17.5 22h-12a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2z"></path></svg>
-                My Work
-            </h2>
-            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-8 items-center justify-center max-w-6xl mx-auto fade-in-up">
-                <img src="https://placehold.co/150x75/0d131f/ffffff?text=Kesaa" alt="Client Logo A" class="client-logo w-full h-auto">
-                <img src="https://placehold.co/150x75/0d131f/ffffff?text=kusvaa" alt="Client Logo B" class="client-logo w-full h-auto">
-                <img src="https://placehold.co/150x75/0d131f/ffffff?text=khakha" alt="Client Logo C" class="client-logo w-full h-auto">
-            </div>
-        </section>
-
-        <!-- पोर्टफोलियो गैलरी सेक्शन -->
-        <section id="portfolio" class="py-12 md:py-16">
-            <h2 class="text-3xl md:text-4xl font-bold text-center text-white mb-10 flex items-center justify-center fade-in-up">
-                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-3 text-teal-400"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
-                My Projects
-            </h2>
-            
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-                <!-- IT प्रोजेक्ट 1: वेब डेवलपमेंट -->
-                <div class="group relative rounded-lg overflow-hidden shadow-xl hover:shadow-2xl transition-shadow duration-300 fade-in-up">
-                    <img src="https://placehold.co/800x600/10b981/ffffff?text=Web+App" alt="A screenshot of a web development project" class="w-full h-72 sm:h-64 object-cover transition-transform duration-300 group-hover:scale-105">
-                    <div class="absolute inset-0 bg-gray-900/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center space-y-2">
-                        <p class="text-white font-semibold text-lg" data-project-title="Web Development">Web Development</p>
-                        <button class="generate-summary-btn bg-gradient-to-r from-teal-500 to-blue-500 hover:from-teal-600 hover:to-blue-600 text-white font-semibold py-2 px-4 rounded-full transition-all duration-300">
-                            Get Summary 💡
+        <!-- Work/Portfolio Section -->
+        <section id="work" class="py-16 md:py-24">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-white mb-12 fade-in-up">Selected Projects</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="group relative rounded-lg overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 fade-in-up">
+                    <img src="https://images.pexels.com/photos/1779487/pexels-photo-1779487.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="E-commerce Platform" class="w-full h-72 object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col items-start justify-end p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <p class="text-white font-bold text-lg" data-project-title="E-commerce Platform">E-commerce Platform</p>
+                        <p class="text-sm text-slate-300 mb-4">A full-featured online store with React, Node.js, and Stripe integration.</p>
+                        <button class="generate-summary-btn text-sm bg-white/20 backdrop-blur-sm text-white font-semibold py-2 px-4 rounded-full hover:bg-white/30 transition-all duration-300">
+                            Get AI Summary 💡
                         </button>
                     </div>
                 </div>
-
-                <!-- IT प्रोजेक्ट 2: डेटा साइंस -->
-                <div class="group relative rounded-lg overflow-hidden shadow-xl hover:shadow-2xl transition-shadow duration-300 fade-in-up">
-                    <img src="https://placehold.co/800x600/f59e0b/ffffff?text=Data+Analysis" alt="A chart showing a data science project" class="w-full h-72 sm:h-64 object-cover transition-transform duration-300 group-hover:scale-105">
-                    <div class="absolute inset-0 bg-gray-900/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center space-y-2">
-                        <p class="text-white font-semibold text-lg" data-project-title="Data Science">Data Science</p>
-                        <button class="generate-summary-btn bg-gradient-to-r from-teal-500 to-blue-500 hover:from-teal-600 hover:to-blue-600 text-white font-semibold py-2 px-4 rounded-full transition-all duration-300">
-                            Get Summary 💡
+                <!-- Project 2 -->
+                <div class="group relative rounded-lg overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 fade-in-up" style="animation-delay: 0.2s;">
+                    <img src="https://images.pexels.com/photos/3861958/pexels-photo-3861958.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Data Analytics Dashboard" class="w-full h-72 object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col items-start justify-end p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <p class="text-white font-bold text-lg" data-project-title="Data Analytics Dashboard">Data Analytics Dashboard</p>
+                         <p class="text-sm text-slate-300 mb-4">Interactive dashboard for visualizing complex data sets using D3.js and Python.</p>
+                        <button class="generate-summary-btn text-sm bg-white/20 backdrop-blur-sm text-white font-semibold py-2 px-4 rounded-full hover:bg-white/30 transition-all duration-300">
+                            Get AI Summary 💡
                         </button>
                     </div>
                 </div>
-                
-                <!-- IT प्रोजेक्ट 3: मोबाइल ऐप -->
-                <div class="group relative rounded-lg overflow-hidden shadow-xl hover:shadow-2xl transition-shadow duration-300 fade-in-up">
-                    <img src="https://placehold.co/800x600/3b82f6/ffffff?text=Mobile+Development" alt="A mockup of a mobile application" class="w-full h-72 sm:h-64 object-cover transition-transform duration-300 group-hover:scale-105">
-                    <div class="absolute inset-0 bg-gray-900/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center space-y-2">
-                        <p class="text-white font-semibold text-lg" data-project-title="Mobile App">Mobile App</p>
-                        <button class="generate-summary-btn bg-gradient-to-r from-teal-500 to-blue-500 hover:from-teal-600 hover:to-blue-600 text-white font-semibold py-2 px-4 rounded-full transition-all duration-300">
-                            Get Summary 💡
-                        </button>
-                    </div>
-                </div>
-                
-                <!-- IT प्रोजेक्ट 4: क्लाउड कंप्यूटिंग -->
-                <div class="group relative rounded-lg overflow-hidden shadow-xl hover:shadow-2xl transition-shadow duration-300 fade-in-up">
-                    <img src="https://placehold.co/800x600/9b59b6/ffffff?text=Cloud+Solutions" alt="An image representing cloud computing" class="w-full h-72 sm:h-64 object-cover transition-transform duration-300 group-hover:scale-105">
-                    <div class="absolute inset-0 bg-gray-900/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center space-y-2">
-                        <p class="text-white font-semibold text-lg" data-project-title="Cloud Computing">Cloud Computing</p>
-                        <button class="generate-summary-btn bg-gradient-to-r from-teal-500 to-blue-500 hover:from-teal-600 hover:to-blue-600 text-white font-semibold py-2 px-4 rounded-full transition-all duration-300">
-                            Get Summary 💡
-                        </button>
-                    </div>
-                </div>
-                
-                <!-- IT प्रोजेक्ट 5: मशीन लर्निंग -->
-                <div class="group relative rounded-lg overflow-hidden shadow-xl hover:shadow-2xl transition-shadow duration-300 fade-in-up">
-                    <img src="https://placehold.co/800x600/e74c3c/ffffff?text=ML+Model" alt="A graphic representing a machine learning model" class="w-full h-72 sm:h-64 object-cover transition-transform duration-300 group-hover:scale-105">
-                    <div class="absolute inset-0 bg-gray-900/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center space-y-2">
-                        <p class="text-white font-semibold text-lg" data-project-title="Machine Learning">Machine Learning</p>
-                        <button class="generate-summary-btn bg-gradient-to-r from-teal-500 to-blue-500 hover:from-teal-600 hover:to-blue-600 text-white font-semibold py-2 px-4 rounded-full transition-all duration-300">
-                            Get Summary 💡
-                        </button>
-                    </div>
-                </div>
-                
-                <!-- IT प्रोजेक्ट 6: साइबर सुरक्षा -->
-                <div class="group relative rounded-lg overflow-hidden shadow-xl hover:shadow-2xl transition-shadow duration-300 fade-in-up">
-                    <img src="https://placehold.co/800x600/34495e/ffffff?text=Cyber+Security" alt="An illustration of cybersecurity" class="w-full h-72 sm:h-64 object-cover transition-transform duration-300 group-hover:scale-105">
-                    <div class="absolute inset-0 bg-gray-900/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center space-y-2">
-                        <p class="text-white font-semibold text-lg" data-project-title="Cybersecurity">Cybersecurity</p>
-                        <button class="generate-summary-btn bg-gradient-to-r from-teal-500 to-blue-500 hover:from-teal-600 hover:to-blue-600 text-white font-semibold py-2 px-4 rounded-full transition-all duration-300">
-                            Get Summary 💡
+                <!-- Project 3 -->
+                <div class="group relative rounded-lg overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 fade-in-up" style="animation-delay: 0.4s;">
+                    <img src="https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Cloud Infrastructure Automation" class="w-full h-72 object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col items-start justify-end p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <p class="text-white font-bold text-lg" data-project-title="Cloud Infrastructure Automation">Cloud Automation</p>
+                        <p class="text-sm text-slate-300 mb-4">Automated server provisioning and deployment on AWS using Terraform and Ansible.</p>
+                        <button class="generate-summary-btn text-sm bg-white/20 backdrop-blur-sm text-white font-semibold py-2 px-4 rounded-full hover:bg-white/30 transition-all duration-300">
+                            Get AI Summary 💡
                         </button>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- गैलरी सेक्शन -->
-        <section id="gallery" class="py-12 md:py-16">
-            <h2 class="text-3xl md:text-4xl font-bold text-center text-white mb-10 flex items-center justify-center fade-in-up">
-                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-3 text-teal-400"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
-                Project Gallery
-            </h2>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-                <!-- गैलरी आइटम 1 -->
-                <div class="rounded-lg overflow-hidden shadow-xl fade-in-up hover:shadow-2xl transition-shadow duration-300">
-                    <img src="https://i.postimg.cc/kgjgBPrc/download.png" alt="A screenshot of a project mockup" class="w-full h-auto object-cover">
-                    <div class="p-4 bg-gray-800">
-                        <h3 class="font-bold text-lg text-white mb-2">Portfolio Website</h3>
-                        <p class="text-sm text-gray-400">A clean and modern portfolio showcasing various IT projects.</p>
-                    </div>
+        <!-- About Section -->
+        <section id="about" class="py-16 md:py-24">
+            <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-10 md:gap-16 glass-card p-8 md:p-12 rounded-xl fade-in-up">
+                <div class="relative w-48 h-48 md:w-60 md:h-60 rounded-full overflow-hidden shadow-lg flex-shrink-0">
+                    <img src="https://i.postimg.cc/sXPJH9xd/Screenshot-2025-06-19-143219.png" alt="Amit Chaudhary" class="w-full h-full object-cover">
                 </div>
-                <!-- गैलरी आइटम 2 -->
-                <div class="rounded-lg overflow-hidden shadow-xl fade-in-up hover:shadow-2xl transition-shadow duration-300">
-                    <img src="https://i.postimg.cc/L4vwd9jN/download.png" alt="A screenshot of a data dashboard" class="w-full h-auto object-cover">
-                    <div class="p-4 bg-gray-800">
-                        <h3 class="font-bold text-lg text-white mb-2">Data Analytics Dashboard</h3>
-                        <p class="text-sm text-gray-400">An interactive dashboard to visualize complex datasets for business insights.</p>
-                    </div>
-                </div>
-                <!-- गैलरी आइटम 3 -->
-                <div class="rounded-lg overflow-hidden shadow-xl fade-in-up hover:shadow-2xl transition-shadow duration-300">
-                    <img src="https://i.postimg.cc/6Q9CNXrf/download.png" alt="A screenshot of a mobile game concept" class="w-full h-auto object-cover">
-                    <div class="p-4 bg-gray-800">
-                        <h3 class="font-bold text-lg text-white mb-2">Mobile Game Concept</h3>
-                        <p class="text-sm text-gray-400">A mobile game prototype with intuitive controls and engaging visuals.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- मेरे बारे में सेक्शन -->
-        <section id="about" class="py-12 md:py-16">
-            <h2 class="text-3xl md:text-4xl font-bold text-center text-white mb-2 flex items-center justify-center fade-in-up">
-                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-3 text-teal-400"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-                About Amit Chaudhary
-            </h2>
-            <p class="text-xl text-center text-gray-400 mb-8 fade-in-up">A Complete IT Solutions</p>
-            <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-8 bg-gray-800 p-8 rounded-lg shadow-xl fade-in-up">
-                <div class="relative w-48 h-48 rounded-full overflow-hidden shadow-lg flex-shrink-0">
-                    <!-- आपकी प्रोफ़ाइल तस्वीर -->
-                    <img src="https://i.postimg.cc/sXPJH9xd/Screenshot-2025-06-19-143219.png" alt="Amit Chaudhary" class="absolute inset-0 w-full h-full object-cover">
-                </div>
-                <div class="md:text-left text-center">
-                    <p class="text-gray-300 mb-4">
-                        I am a passionate IT professional dedicated to building robust software and solving complex technical challenges. My primary interest lies in providing complete IT solutions that are both scalable and secure.
+                <div class="text-center md:text-left">
+                     <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">About Me</h2>
+                    <p class="text-slate-300 mb-4">
+                        I'm a passionate IT professional dedicated to building robust software and solving complex technical challenges. My primary interest lies in providing complete IT solutions that are both scalable and secure.
                     </p>
-                    <p class="text-gray-300 mb-4">
-                        I believe that a great project not only solves a problem but also provides an exceptional user experience. My goal is to create solutions that are both impactful and user-friendly. I am confident in my abilities and am always eager to learn and implement new technologies to stay at the forefront of the industry.
-                    </p>
-                    <p class="text-gray-300">
-                        When I'm not coding, I'm busy staying updated with the latest technological trends and refining my skills. I firmly believe that continuous learning and skill enhancement are crucial for my success and for providing the best service to my clients.
+                    <p class="text-slate-300">
+                        I believe that great projects not only solve problems but also provide an exceptional user experience. I am always eager to learn and implement new technologies to stay at the forefront of the industry.
                     </p>
                 </div>
             </div>
         </section>
 
-        <!-- छोटा FAQ सेक्शन -->
-        <section id="faq" class="py-12 md:py-16">
-            <h2 class="text-3xl md:text-4xl font-bold text-center text-white mb-10 flex items-center justify-center fade-in-up">
-                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-3 text-teal-400"><path d="M9.09 3c-1.2 0-2.43.35-3.5.79-.76.31-1.46.8-2 1.41a6.38 6.38 0 0 0-1.4 2A10.15 10.15 0 0 0 2 12c.6 3.4 2.8 5.7 5.5 6.7.75.3 1.5.58 2.3.82l.4.1h2.2c1.7 0 3.2-.5 4.5-1.5a5.58 5.58 0 0 0 2.2-2.8l.5-1.2c.5-1.1.7-2.3.7-3.5a10.15 10.15 0 0 0-1.4-2c-.54-.6-1.24-1.1-2-1.41C15.47 3.35 14.2 3 13 3h-3.9z"></path></svg>
-                Frequently Asked Questions
-            </h2>
-            <div class="max-w-3xl mx-auto">
-                <!-- FAQ Item 1 -->
-                <div class="bg-gray-800 p-6 rounded-lg shadow-xl mb-4 fade-in-up">
-                    <h3 class="font-bold text-lg text-white mb-2">What services do you offer?</h3>
-                    <p class="text-gray-300">I offer a wide range of services including web development, UI/UX design, digital marketing, and cloud solutions.</p>
-                </div>
-                <!-- FAQ Item 2 -->
-                <div class="bg-gray-800 p-6 rounded-lg shadow-xl mb-4 fade-in-up">
-                    <h3 class="font-bold text-lg text-white mb-2">How do you start a project?</h3>
-                    <p class="text-gray-300">I begin with a detailed discussion to understand your needs, followed by a thorough analysis and planning phase.</p>
-                </div>
-                <!-- FAQ Item 3 -->
-                <div class="bg-gray-800 p-6 rounded-lg shadow-xl mb-4 fade-in-up">
-                    <h3 class="font-bold text-lg text-white mb-2">What are your working hours?</h3>
-                    <p class="text-gray-300">I am available for discussions from Monday to Friday, 9 AM to 6 PM IST. I am also flexible for urgent requests.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- संपर्क सेक्शन -->
-        <section id="contact" class="py-12 md:py-16">
-            <h2 class="text-3xl md:text-4xl font-bold text-center text-white mb-10 flex items-center justify-center fade-in-up">
-                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-3 text-teal-400"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-                Get in Touch
-            </h2>
-            <div class="max-w-xl mx-auto text-center">
-                <p class="text-gray-300 mb-8 fade-in-up">
-                    If you're interested in a collaboration or want to discuss a project, don't hesitate to reach out!
-                </p>
-                <div class="flex justify-center space-x-4 fade-in-up">
-                    <!-- WhatsApp चैट बटन -->
-                    <a href="https://api.whatsapp.com/send?phone=8709418707" target="_blank" class="inline-block bg-green-500 hover:bg-green-600 text-white font-semibold py-3 px-6 rounded-full shadow-lg transition-colors duration-300">
-                        <i class="fab fa-whatsapp mr-2"></i> Chat on WhatsApp
-                    </a>
-                    <!-- ईमेल भेजने का बटन -->
-                    <!-- मेलटो लिंक को आपके ईमेल आईडी के साथ अपडेट किया गया है, और इसमें डिफ़ॉल्ट विषय (subject) और संदेश (body) जोड़ा गया है। -->
-                    <a href="mailto:aminehu@zohomail.in?subject=Inquiry from Your Portfolio&body=Hello Amit,%0A%0AI saw your portfolio and would like to connect with you about..." class="inline-block bg-gray-700 hover:bg-gray-600 text-white font-semibold py-3 px-6 rounded-full shadow-lg transition-colors duration-300">
-                        <i class="fas fa-envelope mr-2"></i> Send an Email
-                    </a>
-                </div>
-                
-                <div class="flex justify-center space-x-6 text-2xl mt-8 fade-in-up">
-                    <!-- सोशल मीडिया लिंक -->
-                    <a href="#" target="_blank" class="text-gray-400 hover:text-white transition-colors duration-300"><i class="fab fa-twitter"></i></a>
-                    <a href="#" target="_blank" class="text-gray-400 hover:text-white transition-colors duration-300"><i class="fab fa-instagram"></i></a>
-                    <a href="#" target="_blank" class="text-gray-400 hover:text-white transition-colors duration-300"><i class="fab fa-linkedin"></i></a>
-                    <a href="#" target="_blank" class="text-gray-400 hover:text-white transition-colors duration-300"><i class="fab fa-dribbble"></i></a>
-                </div>
+        <!-- Contact Section -->
+        <section id="contact" class="py-16 md:py-24 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-4 fade-in-up">Have a project in mind?</h2>
+            <p class="text-lg text-slate-300 mb-8 max-w-2xl mx-auto fade-in-up" style="animation-delay: 0.2s;">
+                Let's build something amazing together. I'm available for freelance projects and collaborations.
+            </p>
+            <div class="flex justify-center space-x-4 fade-in-up" style="animation-delay: 0.4s;">
+                <a href="mailto:aminehu@zohomail.in?subject=Project Inquiry from Your Portfolio" class="inline-block bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-white font-bold py-3 px-8 rounded-full shadow-lg shadow-cyan-500/20 transition-all duration-300 transform hover:scale-105">
+                    <i class="fas fa-envelope mr-2"></i> Send an Email
+                </a>
+                <a href="https://api.whatsapp.com/send?phone=8709418707" target="_blank" class="inline-block bg-slate-700 hover:bg-slate-600 text-white font-semibold py-3 px-8 rounded-full transition-colors duration-300">
+                    <i class="fab fa-whatsapp mr-2"></i> Chat on WhatsApp
+                </a>
             </div>
         </section>
 
     </main>
     
-    <!-- फुटर -->
-    <footer class="bg-gray-800 text-gray-400 py-6 text-center border-t border-gray-700">
+    <!-- Footer -->
+    <footer class="bg-slate-900/50 border-t border-slate-700/50 py-6 text-center">
         <div class="container mx-auto">
-            <p>&copy; 2025 Amit Chaudhary. All rights reserved.</p>
+            <div class="flex justify-center space-x-6 text-xl text-slate-400 mb-4">
+                <a href="#" target="_blank" class="hover:text-white transition-colors duration-300"><i class="fab fa-twitter"></i></a>
+                <a href="#" target="_blank" class="hover:text-white transition-colors duration-300"><i class="fab fa-linkedin"></i></a>
+                <a href="#" target="_blank" class="hover:text-white transition-colors duration-300"><i class="fab fa-github"></i></a>
+            </div>
+            <p class="text-sm text-slate-500">&copy; 2025 Amit Chaudhary. All Rights Reserved.</p>
         </div>
     </footer>
     
-    <!-- सारांश दिखाने के लिए पॉप-अप विंडो (Modal) -->
+    <!-- AI Summary Modal -->
     <div id="summary-modal" class="modal">
         <div class="modal-content">
             <span class="close-button" id="close-modal">&times;</span>
-            <h3 class="text-xl font-bold text-white mb-4">Generated Project Summary</h3>
-            <div id="summary-text" class="text-gray-300"></div>
+            <h3 class="text-xl font-bold text-white mb-4 gradient-text">AI Generated Summary</h3>
+            <div id="summary-text" class="text-slate-300 leading-relaxed"></div>
         </div>
     </div>
 
     <script>
-        const API_KEY = "YOUR_API_KEY_HERE"; // <-- यहाँ अपना Gemini API Key पेस्ट करें
+        const API_KEY = "YOUR_API_KEY_HERE"; // <-- Paste your Gemini API Key here
 
-        // प्रोजेक्ट का सारांश पाने के लिए Gemini API को कॉल करने का फ़ंक्शन।
+        // Function to call Gemini API for project summary
         async function getSummaryFromGemini(projectTitle) {
-            const prompt = `Provide a short, professional summary for an IT project titled '${projectTitle}'. Focus on the technologies used and the project's purpose. Keep it under 50 words.`;
+            const prompt = `Provide a concise, professional summary (under 60 words) for an IT project titled '${projectTitle}'. Highlight its key purpose, technologies used, and business value.`;
 
             const payload = {
-                contents: [{
-                    role: "user",
-                    parts: [{ text: prompt }]
-                }],
+                contents: [{ role: "user", parts: [{ text: prompt }] }],
             };
 
-            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${API_KEY}`;
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${API_KEY}`;
             
             try {
-                let response = await fetch(apiUrl, {
+                const response = await fetch(apiUrl, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(payload)
                 });
                 
-                // API कॉल में त्रुटि होने पर पुनः प्रयास करें (exponential backoff)
                 if (!response.ok) {
-                    let delay = 1000;
-                    for (let i = 0; i < 3; i++) {
-                        await new Promise(res => setTimeout(res, delay));
-                        response = await fetch(apiUrl, {
-                            method: 'POST',
-                            headers: { 'Content-Type': 'application/json' },
-                            body: JSON.stringify(payload)
-                        });
-                        if (response.ok) break;
-                        delay *= 2;
-                    }
-                    if (!response.ok) {
-                        throw new Error(`API call failed with status: ${response.status}`);
-                    }
+                    throw new Error(`API call failed with status: ${response.status}`);
                 }
                 
                 const result = await response.json();
                 
-                if (result.candidates && result.candidates.length > 0 && result.candidates[0].content.parts.length > 0) {
+                if (result.candidates && result.candidates[0]?.content?.parts[0]?.text) {
                     return result.candidates[0].content.parts[0].text;
                 } else {
-                    return "Sorry, I couldn't generate a summary for this project.";
+                    console.error("Invalid API response structure:", result);
+                    return "Sorry, a summary could not be generated at this time.";
                 }
             } catch (error) {
                 console.error("Error calling Gemini API:", error);
-                return "An error occurred while generating the summary.";
+                return "An error occurred while generating the summary. Please check the API key and console for details.";
             }
         }
 
-        // वेबसाइट के तत्वों को एनिमेट करने के लिए
+        // Intersection Observer for fade-in animations
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -553,7 +398,7 @@
             observer.observe(element);
         });
 
-        // "Get Summary" बटनों पर इवेंट लिसनर जोड़ें
+        // DOMContentLoaded event to set up modal listeners
         document.addEventListener('DOMContentLoaded', () => {
             const summaryButtons = document.querySelectorAll('.generate-summary-btn');
             const modal = document.getElementById('summary-modal');
@@ -562,13 +407,26 @@
 
             summaryButtons.forEach(button => {
                 button.addEventListener('click', async (event) => {
-                    // एक लोडिंग स्टेट दिखाएं
-                    summaryText.innerHTML = '<div class="flex items-center justify-center space-x-2"><div class="w-4 h-4 rounded-full bg-teal-400 animate-bounce"></div><div class="w-4 h-4 rounded-full bg-teal-400 animate-bounce" style="animation-delay: -0.15s;"></div><div class="w-4 h-4 rounded-full bg-teal-400 animate-bounce" style="animation-delay: -0.3s;"></div></div><p class="text-center mt-4 text-gray-400">Generating summary...</p>';
+                    event.stopPropagation(); // Prevent card link from firing if any
+                    
+                    // Show loading state in modal
+                    summaryText.innerHTML = `
+                        <div class="flex items-center justify-center space-x-2">
+                            <div class="w-3 h-3 rounded-full bg-cyan-400 animate-bounce"></div>
+                            <div class="w-3 h-3 rounded-full bg-cyan-400 animate-bounce" style="animation-delay: -0.15s;"></div>
+                            <div class="w-3 h-3 rounded-full bg-cyan-400 animate-bounce" style="animation-delay: -0.3s;"></div>
+                        </div>
+                        <p class="text-center mt-4 text-slate-400 text-sm">Generating summary with AI...</p>`;
                     modal.style.display = 'flex';
 
-                    // पैरेंट div से प्रोजेक्ट का शीर्षक प्राप्त करें
+                    // Get project title from the parent element
                     const projectTitle = event.target.closest('.group').querySelector('[data-project-title]').dataset.projectTitle;
                     
+                    if (API_KEY === "YOUR_API_KEY_HERE") {
+                         summaryText.textContent = "Please add your Gemini API Key in the script tag to enable this feature.";
+                         return;
+                    }
+
                     if (projectTitle) {
                         const summary = await getSummaryFromGemini(projectTitle);
                         summaryText.textContent = summary;
@@ -578,16 +436,14 @@
                 });
             });
 
-            // जब क्लोज बटन पर क्लिक किया जाए तो पॉप-अप विंडो बंद करें
-            closeModalBtn.addEventListener('click', () => {
-                modal.style.display = 'none';
-            });
-            
-            // जब पॉप-अप विंडो के बाहर क्लिक किया जाए तो उसे बंद करें
+            // Close modal functionality
+            const closeModal = () => modal.style.display = 'none';
+            closeModalBtn.addEventListener('click', closeModal);
             window.addEventListener('click', (event) => {
-                if (event.target === modal) {
-                    modal.style.display = 'none';
-                }
+                if (event.target === modal) closeModal();
+            });
+            window.addEventListener('keydown', (event) => {
+                if (event.key === 'Escape') closeModal();
             });
         });
     </script>
